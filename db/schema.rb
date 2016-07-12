@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160712235122) do
     t.datetime "updated_at",                  null: false
   end
 
+<<<<<<< 559e1cd87b8847bf130e902af55d5d1932171c7d
 <<<<<<< HEAD
 <<<<<<< 72f3b5fbf66977d231fc9ac9e494e1a8c28a31a8
   create_table "questions", force: :cascade do |t|
@@ -40,6 +41,8 @@ ActiveRecord::Schema.define(version: 20160712235122) do
     t.datetime "updated_at",             null: false
   end
 
+=======
+>>>>>>> Create application table/model
   create_table "research_applications", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "project_id"
@@ -48,10 +51,13 @@ ActiveRecord::Schema.define(version: 20160712235122) do
     t.integer  "status"
   end
 
+<<<<<<< 559e1cd87b8847bf130e902af55d5d1932171c7d
 =======
 >>>>>>> Create project table and model
 =======
 >>>>>>> 6d2e19b880afbef59319ef0269fb6b18526e5439
+=======
+>>>>>>> Create application table/model
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
