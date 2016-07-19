@@ -54,12 +54,8 @@ ActiveRecord::Schema.define(version: 20160718195327) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.integer  "programming_language"
-    t.string   "position"
-    t.integer  "domain"
-    t.integer  "courses"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer "category"
+    t.string  "tag"
   end
 
   create_table "user_tags", force: :cascade do |t|
