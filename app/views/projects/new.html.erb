@@ -1,0 +1,41 @@
+<%= form_for @project do |f| %>
+Title
+<%= f.text_field :title, required: true, placeholder: 'title' %>
+Subtitle
+<%= f.text_field :subtitle, required: true, placeholder: 'subtitle' %>
+Description
+<%= f.text_field :description, required: true, placeholder: 'description' %>
+Basic info
+What field does your project fall under?
+<%= f.select(:field, @fields, required: true) %>
+What kind of person are you looking for? Maximum 5
+<div class="field">
+  <p><input type="text" placeholder="Researcher"></p>
+  <%= hidden_field_tag 'position1'%>
+</div>
+<div class="field">
+  <p><input placeholder="Researcher"></p>
+  <%= hidden_field_tag 'position2'%>
+</div>
+<div class="field">
+  <p><input placeholder="Researcher"></input></p>
+  <%= hidden_field_tag 'position3'%>
+</div>
+<div class="field">
+  <p><input placeholder="Researcher"></input></p>
+  <%= hidden_field_tag 'position4'%>
+</div>
+<div class="field">
+  <p><input placeholder="Researcher"></input></p>
+  <%= hidden_field_tag 'position5'%>
+</div>
+Form of compensation?
+<%= f.select(:compensation, @compensations, required: true)%>
+Hours per week?
+<%= f.number_field :hours_per_week, class: :text_field, step: 0.5 %>
+<%= f.date_field :startdate, required: true %>
+<%= f.date_field :enddate, required: true%>
+<%= f.date_field :app_deadline, required: true%>
+<%= f.submit %>
+<% end %>
+

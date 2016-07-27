@@ -20,6 +20,7 @@ class Project < ActiveRecord::Base
   enum state: [:active, :inactive]
   enum education_level: [:undergraduate, :graduate, :both]
   enum compensation: [:units, :paid, :other]
+  enum field: [:engineeringcs, :economics]
 
   has_many :project_tags
   has_many :tags, through: :project_tags
@@ -32,4 +33,14 @@ class Project < ActiveRecord::Base
       ProjectTag.create(tag: tag, project: current_project)
     end
   end
+
+  def add_positions(current_project, positions)
+    all_positions = positions.values
+    all_positions.each do |position|
+      if !position.nil?
+        current_project.positions.push(position)
+      end
+    end
+  end
+
 end
