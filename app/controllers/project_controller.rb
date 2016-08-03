@@ -1,3 +1,5 @@
+## Redundant: see projects_controller
+
 class ProjectController < ApplicationController
   def index
     owner = User.find(params[:user_id])
