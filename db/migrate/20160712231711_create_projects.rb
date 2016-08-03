@@ -12,7 +12,7 @@ class CreateProjects < ActiveRecord::Migration
       t.integer :education_level
       t.integer :state, default: 1
       t.integer :field
-      t.text :positions, array: true, default: []
+      t.text :positions, array: true
       t.timestamps null: false
     end
   end

@@ -17,6 +17,7 @@
 #
 
 class Project < ActiveRecord::Base
+  attr_accessor
   enum state: [:active, :inactive]
   enum education_level: [:undergraduate, :graduate, :both]
   enum compensation: [:units, :paid, :other]
@@ -26,6 +27,7 @@ class Project < ActiveRecord::Base
   has_many :tags, through: :project_tags
   has_many :applications
   has_many :users, through: :applications
+  has_many :questions
 
 # Current_project is project object, tags is array of tag objects
   def add_tags(current_project, tags)
@@ -34,13 +36,9 @@ class Project < ActiveRecord::Base
     end
   end
 
-  def add_positions(current_project, positions)
-    all_positions = positions.values
-    all_positions.each do |position|
-      if !position.nil?
-        current_project.positions.push(position)
-      end
+  def add_questions(current_project, questions)
+    questions.each do |q|
+      Question.create(project: current_project, title: q)
     end
   end
-
 end

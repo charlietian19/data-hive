@@ -35,17 +35,17 @@ ActiveRecord::Schema.define(version: 20160718195327) do
     t.integer  "education_level"
     t.integer  "state",           default: 1
     t.integer  "field"
-    t.text     "positions",       default: [],              array: true
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.text     "positions",                                array: true
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "project_application_id"
+    t.integer  "project_id"
     t.string   "title"
     t.text     "answer"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "research_applications", force: :cascade do |t|
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160718195327) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "status"
+    t.text     "answers",                 array: true
   end
 
   create_table "tags", force: :cascade do |t|

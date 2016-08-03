@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+
   def index
     @projects = Project.all
   end
@@ -16,11 +17,12 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.positions = params[:positions]
+    byebug
     if @project.save
+      @project.add_questions(@project, params[:questions])
       # @project.add_tags(@project, params[:skills])
       # @project.add_tags(@project, params[:courses])
-      byebug
-      @project.add_positions(@project, project_position_params)
       redirect_to @project
     else
       redirect_to action: 'new'
@@ -28,11 +30,8 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :subtitle, :startdate, :enddate, :app_deadline, :description,
-                                    :hours_per_week, :compensation, :education_level, :state, :field)
-  end
-
-  def project_position_params
-    params.require(:project).permit(:position1, :position2, :position3, :position4, :position5)
+    params.require(:project).permit(:title, :subtitle, :startdate, :enddate, :app_deadline,
+                                    :description, :hours_per_week, :compensation, :education_level, :field,
+                                    positions: [])
   end
 end

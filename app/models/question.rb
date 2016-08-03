@@ -11,5 +11,5 @@
 #
 
 class Question < ActiveRecord::Base
-  belongs_to :research_application
+  belongs_to :project
 end
