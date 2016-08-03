@@ -1,0 +1,40 @@
+<%= form_for @project do |f| %>
+Title
+<%= f.text_field :title,  placeholder: 'title' %>
+Subtitle
+<%= f.text_field :subtitle,  placeholder: 'subtitle' %>
+Description
+<%= f.text_field :description,  placeholder: 'description' %>
+Basic info
+What field does your project fall under?
+<%= f.select(:field, @fields) %>
+What kind of person are you looking for? Maximum 5
+
+
+
+  <input type="text" name="positions[]" />
+  <input type="text" name="positions[]" />
+  <input type="text" name="positions[]" />
+  <input type="text" name="positions[]" />
+  <input type="text" name="positions[]" />
+
+
+Form of compensation?
+<%= f.select(:compensation, @compensations)%>
+Hours per week?
+<%= f.number_field :hours_per_week, class: :text_field, step: 0.5 %>
+Project start date
+<%= f.date_field :startdate %>
+Project end date
+<%= f.date_field :enddate%>
+Application end date
+<%= f.date_field :app_deadline%>
+Add questions
+
+  <input type="text" name="questions[]" />
+  <input type="text" name="questions[]" />
+  <input type="text" name="questions[]" />
+
+<%= f.submit %>
+<% end %>
+

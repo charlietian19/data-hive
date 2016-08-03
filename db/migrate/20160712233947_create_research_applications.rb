@@ -5,6 +5,7 @@ class CreateResearchApplications < ActiveRecord::Migration
       t.integer :project_id
       t.timestamps null: false
       t.integer :status
+      t.text :answers, array: true
     end
   end
 end

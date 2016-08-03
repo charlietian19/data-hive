@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
 
+  root to: "projects#index"
+  resources :projects
   devise_for :users, controllers: {
       sessions: 'users/sessions'
   }
 
-  resources :users do 
-    resources :projects
-  end
-  
-  root to: "home#index"
+
+#Projects have many users too, project creation will automatically generate application connector with status set to leader.
+  # resources :users do
+  #   resources :projects
+  # end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
