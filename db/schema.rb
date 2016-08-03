@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160718195327) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
+    t.string   "subtitle"
     t.date     "startdate"
     t.date     "enddate"
     t.date     "app_deadline"
@@ -33,16 +34,18 @@ ActiveRecord::Schema.define(version: 20160718195327) do
     t.integer  "compensation"
     t.integer  "education_level"
     t.integer  "state",           default: 1
+    t.integer  "field"
+    t.text     "positions",                                array: true
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "project_application_id"
+    t.integer  "project_id"
     t.string   "title"
     t.text     "answer"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "research_applications", force: :cascade do |t|
@@ -51,15 +54,12 @@ ActiveRecord::Schema.define(version: 20160718195327) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "status"
+    t.text     "answers",                 array: true
   end
 
   create_table "tags", force: :cascade do |t|
-    t.integer  "programming_language"
-    t.string   "position"
-    t.integer  "domain"
-    t.integer  "courses"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer "category"
+    t.string  "tag"
   end
 
   create_table "user_tags", force: :cascade do |t|

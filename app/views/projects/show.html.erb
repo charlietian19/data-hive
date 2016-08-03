@@ -1,0 +1,16 @@
+<%= @project %> </br>
+<%= @project.title %> </br>
+<%= @project.subtitle %> </br>
+<%= @project.description %> </br>
+startdate:
+<%= @project.startdate %> </br>
+enddate:
+<%= @project.enddate %></br>
+compensation:
+<%= @project.compensation %></br>
+Position
+<% @project.positions.each do |position| %>
+  <%= position %>
+<% end %></br>
+<%= link_to 'proejcts index', projects_path %>
+<%= link_to %>
