@@ -36,16 +36,9 @@ ActiveRecord::Schema.define(version: 20160718195327) do
     t.integer  "state",           default: 1
     t.integer  "field"
     t.text     "positions",                                array: true
+    t.text     "questions",                                array: true
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-  end
-
-  create_table "questions", force: :cascade do |t|
-    t.integer  "project_id"
-    t.string   "title"
-    t.text     "answer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "research_applications", force: :cascade do |t|

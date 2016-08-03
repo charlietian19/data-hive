@@ -1,0 +1,11 @@
+<%= @project.description %>
+<%= form_for [@project, @research_application] do |f| %>
+  <% @questions.each do |q| %>
+  <% if !q.empty? %>
+  <%= q %> </br>
+  <input type="text" name="answers[]" />
+  <% end %>
+  <% end %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit %>
+<% end %>

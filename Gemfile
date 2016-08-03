@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Foundation for front end
+gem 'foundation-rails'
 #Annotate models
 gem 'annotate', '~> 2.7', '>= 2.7.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

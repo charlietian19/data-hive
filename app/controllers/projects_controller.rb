@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @status = ResearchApplication.where(project_id: @project.id, user_id: current_user.id)
   end
 
   def new
@@ -18,9 +19,9 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.positions = params[:positions]
-    byebug
+    @project.questions = params[:questions]
     if @project.save
-      @project.add_questions(@project, params[:questions])
+      @project.add_leader(@project, current_user)
       # @project.add_tags(@project, params[:skills])
       # @project.add_tags(@project, params[:courses])
       redirect_to @project
@@ -31,7 +32,6 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, :subtitle, :startdate, :enddate, :app_deadline,
-                                    :description, :hours_per_week, :compensation, :education_level, :field,
-                                    positions: [])
+                                    :description, :hours_per_week, :compensation, :education_level, :field)
   end
 end
