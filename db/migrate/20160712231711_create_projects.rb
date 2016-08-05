@@ -13,6 +13,7 @@ class CreateProjects < ActiveRecord::Migration
       t.integer :state, default: 1
       t.integer :field
       t.text :positions, array: true
+      t.text :questions, array: true
       t.timestamps null: false
     end
   end

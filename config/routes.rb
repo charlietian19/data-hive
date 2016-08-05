@@ -1,10 +1,25 @@
 Rails.application.routes.draw do
 
-  root to: "projects#index"
-  resources :projects
+  authenticated :user do
+    root to: 'projects#index', as: 'authenticated_root'
+  end
+
+  root 'home#index'
+  ################
+  # DEVISE
+  ################
   devise_for :users, controllers: {
       sessions: 'users/sessions'
   }
+
+  ################
+  # PROJECTS
+  ################
+  resources :projects do
+    resources :research_applications do
+      patch 'bookmark'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

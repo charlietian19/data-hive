@@ -1,9 +1,10 @@
 # == Schema Information
 #
 # Table name: projects
-# =>
+#
 #  id              :integer          not null, primary key
 #  title           :string
+#  subtitle        :string
 #  startdate       :date
 #  enddate         :date
 #  app_deadline    :date
@@ -12,6 +13,9 @@
 #  compensation    :integer
 #  education_level :integer
 #  state           :integer          default(1)
+#  field           :integer
+#  positions       :text             is an Array
+#  questions       :text             is an Array
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -25,9 +29,8 @@ class Project < ActiveRecord::Base
 
   has_many :project_tags
   has_many :tags, through: :project_tags
-  has_many :applications
-  has_many :users, through: :applications
-  has_many :questions
+  has_many :research_applications
+  has_many :users, through: :research_applications
 
 # Current_project is project object, tags is array of tag objects
   def add_tags(current_project, tags)
@@ -36,9 +39,7 @@ class Project < ActiveRecord::Base
     end
   end
 
-  def add_questions(current_project, questions)
-    questions.each do |q|
-      Question.create(project: current_project, title: q)
-    end
+  def add_leader(current_project, user)
+    ResearchApplication.create(project: current_project, user: user, status: 'leader')
   end
 end
