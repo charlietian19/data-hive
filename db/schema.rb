@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718195327) do
+ActiveRecord::Schema.define(version: 20160801043928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20160718195327) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
-    t.string   "subtitle"
     t.date     "startdate"
     t.date     "enddate"
     t.date     "app_deadline"
@@ -34,11 +33,16 @@ ActiveRecord::Schema.define(version: 20160718195327) do
     t.integer  "compensation"
     t.integer  "education_level"
     t.integer  "state",           default: 1
-    t.integer  "field"
-    t.text     "positions",                                array: true
-    t.text     "questions",                                array: true
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer  "project_application_id"
+    t.string   "title"
+    t.text     "answer"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "research_applications", force: :cascade do |t|
@@ -47,7 +51,6 @@ ActiveRecord::Schema.define(version: 20160718195327) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "status"
-    t.text     "answers",                 array: true
   end
 
   create_table "tags", force: :cascade do |t|
@@ -75,6 +78,12 @@ ActiveRecord::Schema.define(version: 20160718195327) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "class_year"
+    t.integer  "grad_year"
+    t.string   "major"
+    t.string   "minor"
+    t.float    "gpa"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

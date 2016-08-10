@@ -16,3 +16,14 @@
 
  */
  @import "foundation_and_overrides";
+ @import "home";
+
+.page_title {
+	/* Title that goes on each page */
+	font-family: Helvetica-Light;
+	font-size: 36px;
+	color: #333333;
+	position: absolute;
+	top: 193px;
+	left: 128px;
+}
