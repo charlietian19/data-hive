@@ -1,3 +1,86 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.sub-nav {
+	padding-top: 230px;
+	padding-left: 128px;
+
+}
+
+.sub-nav dt.active a, .sub-nav dd.active a, .sub-nav li.active a, 
+.sub-nav dt.active a:hover, .sub-nav dd.active a:hover, .sub-nav li.active a:hover {
+	background: #003262;
+}
+
+.h_line {
+	hr {
+		display: block;
+		height: 1px;
+		border: 0;
+		border-top: 1px solid #003632;
+		margin-left: 128px;
+		margin-top: 0px;
+	}
+}
+
+.listing {
+	height: 94px;
+	border: 1px solid #003262;
+	border-radius: 5px;
+	margin-left: 128px;
+	margin-bottom: 37px;
+	padding-top: 8px;
+	background: transparent;
+
+	&:hover {
+		background: #E5F5FF;
+	}
+}
+
+.listing-title {
+	font-family: Helvetica;
+	font-size: 22px;
+	color: #333333;
+	margin-left: 34px;
+	padding: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 80ch;
+}
+
+.listing-subtitle {
+	font-family: Helvetica-LightOblique;
+	font-size: 14px;
+	color: #333333;
+	margin-left: 34px;
+	margin-bottom: 5px;
+	padding: 0;
+}
+
+.listing hr {
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #979797;
+	padding: 0px;
+	margin: -10px 0 -10px 24px;
+}
+
+.looking-for {
+	font-family: Helvetica-Bold;
+	font-size: 12px;
+	color: #000000;
+	letter-spacing: 0px;
+	margin: 0 0 0 34px;
+}
+
+#rectangle {
+	position: absolute;
+    width:24px;
+    margin-top: -8px;
+	min-height: 92px;
+    background:blue;
+    border-radius: 2px;
+}

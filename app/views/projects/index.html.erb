@@ -1,8 +1,52 @@
-projects index </br>
-<% @projects.each do |p| %>
-  <%= p.title %> <%= link_to p.title, project_path(p) %> </br>
+
+<% if current_user.present? %>
+	<%= render "layouts/nav" %>
+<% else %>
+	<%= render "layouts/nav_login" %>
 <% end %>
 
 
-<%= link_to 'new project', new_project_path%>
+<div class="large-12 columns page_title">
+	Project Listings
+</div>
+
+
+
+<div class="large-12 columns">
+	<dl class="sub-nav">
+	  <dd class="active"><a href="#">Featured</a></dd>
+	  <dd><a href="#">All</a></dd>
+	</dl>
+</div>
+
+
+
+<div class="small-7 medium-8 large-10 columns h_line">
+	<hr>
+</div>
+
+
+<div class="small-7 medium-8 large-9 columns">
+	<% projects = Project.all %>
+	<% projects.each do |project| %>
+		<%= link_to project do %>
+			<div class="listing">
+				<div id="rectangle"></div>
+				<span class="large-12 columns listing-title"><%= project.title %></span>
+				<span class="large-12 columns listing-subtitle"><%= project.description %></span>
+				<hr>
+				<span class="looking-for">Looking For:</span>
+			</div>
+		<% end %>
+	<% end %>
+</div>
+
+<div class="small-5 medium-4 large-3 columns">
+	<div class="large-12 columns text-center">
+		<span class='login_link'>Filter by:</span>
+	</div>
+	<div class="large-12 columns">
+		text
+	</div>
+</div>
 
