@@ -7,7 +7,9 @@
     <%= link_to 'Create', new_project_path%>
 
     <div class="right verticalLine">
-      <%= link_to current_user.email, root_path %>
+      <% user_email = current_user.email %>
+      <% email_index = user_email.index("@") %>
+      <%= link_to current_user.email[0,email_index], root_path %>
     </div>
 
     <div class="show-for-medium-up right">
