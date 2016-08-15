@@ -6,6 +6,7 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/foundation/6.2.3/foundation.min.js"></script>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -14,8 +15,13 @@
   </head>
 
   <body>
-
+    <header>
+      <% if current_user.present? %>
+        <%= render "layouts/nav" %>
+      <% else %>
+        <%= render "layouts/nav_login" %>
+      <% end %>
+    </header>
     <%= yield %>
-
   </body>
 </html>

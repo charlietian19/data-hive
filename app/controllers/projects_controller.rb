@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @tags = Tag.all
+    @education_levels = Project.education_levels.keys
     @compensations = Project.compensations.keys
     @fields = Project.fields.keys
   end
