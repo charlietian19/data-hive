@@ -20,18 +20,14 @@
  @import "foundation_and_overrides";
  @import "projects";
 
-
 .top-bar {
-	background: transparent;
+	background: transparent !important;
 	border: 1px solid $datahive-blue;
 	height: 60px;
 	font-family: Helvetica-Light;
 	padding-bottom: 10px;
 	padding-top: 10px;
-}
-
-
-.top-bar-section {
+	overflow: visible;
 	a {
 	    background: transparent;
 	    color: $link-color;
@@ -60,7 +56,21 @@
 		border-left: 1px solid #003262;
     	height: 40px;
     	padding-left: 20px;
+
+    	.menu {
+    		background: white;
+    		color: $link-color;
+    		margin: 9px 0 0 0;
+
+    		.is-dropdown-submenu {
+    			border: 1px solid $datahive-blue;
+    			min-width: auto;
+    			text-align: center;
+    			z-index: 10;
+    		}
+    	}
 	}
+
 }
 
 .verticalLine {
