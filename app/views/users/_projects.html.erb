@@ -1,0 +1,8 @@
+<% if @ownedprojectsapp.nil? %>
+  you currently lead no projects! to create a new project go to <%= link_to 'new project', new_project_path %>
+<% else %>
+  <% @ownedprojectsapp.each do |app| %>
+    <%= app.user.firstname %>
+    <%= link_to 'application', research_application_path(app) %> </br>
+  <% end %>
+<% end %>

@@ -1,0 +1,20 @@
+<h1>saved (bookmarked?) projects</h1>
+</br>
+<% if @bookmarkedapps.nil? %>
+  you have no bookemarked projects! to browse more projects go to <%= link_to 'projects index', projects_path %>
+<% else %>
+  <% @bookmarkedapps.each do |app| %>
+    <%= app.project.title %>
+    <%= link_to app.project.title, project_path(app.project)%> </br>
+  <% end %>
+<% end %>
+
+<h1>Submitted apps</h1></br>
+<% if @submittedapps.nil? %>
+  you haven't submitted any apps! to browse more projects go to <%= link_to 'projects index', projects_path %>
+<% else %>
+  <% @submittedapps.each do |app| %>
+    <%= app.project.title %>
+    <%= link_to app.project.title, project_path(app.project)%> </br>
+  <% end %>
+<% end %>

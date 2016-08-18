@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
       sessions: 'users/sessions'
   }
+  resources :users do
+    get 'users/:id/dashboard', to: 'users#dashboard'
+  end
 
   ################
   # PROJECTS

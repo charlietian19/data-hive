@@ -3,6 +3,7 @@ class ResearchApplicationsController < ApplicationController
     @project = Project.find(params[:project_id])
     @research_application = ResearchApplication.new
     @questions = @project.questions
+    @submitted = !ResearchApplication.where(user: current_user, proejct: @project, status: 2).empty?
   end
 
   def create
