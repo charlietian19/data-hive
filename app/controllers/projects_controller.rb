@@ -34,4 +34,16 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(:title, :subtitle, :startdate, :enddate, :app_deadline,
                                     :description, :hours_per_week, :compensation, :education_level, :field)
   end
+
+  def accept
+    project = Project.find(params[:id])
+    accpeted_application_ids = params[:accpeted_application_ids]
+    project.accept(accpeted_application_ids)
+  end
+
+  def reject
+    project = Project.find(params[:id])
+    rejected_application_ids = params[:rejected_application_ids]
+    project.accept(rejected_application_ids)
+  end
 end
