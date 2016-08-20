@@ -8,6 +8,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  status     :integer
+#  answers    :text             is an Array
 #
 
 class ResearchApplication < ActiveRecord::Base

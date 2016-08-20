@@ -4,6 +4,7 @@
 #
 #  id              :integer          not null, primary key
 #  title           :string
+#  subtitle        :string
 #  startdate       :date
 #  enddate         :date
 #  app_deadline    :date
@@ -12,6 +13,9 @@
 #  compensation    :integer
 #  education_level :integer
 #  state           :integer          default(1)
+#  field           :integer
+#  positions       :text             is an Array
+#  questions       :text             is an Array
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #

@@ -23,7 +23,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :applications
-  has_many :projects, through: :applications
-
+  has_many :research_applications
+  has_many :projects, through: :research_applications
 end

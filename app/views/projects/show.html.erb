@@ -1,16 +1,21 @@
 <%= @project %> </br>
+title:
 <%= @project.title %> </br>
+subtitle:
 <%= @project.subtitle %> </br>
+description:
 <%= @project.description %> </br>
 startdate:
 <%= @project.startdate %> </br>
 enddate:
 <%= @project.enddate %></br>
+application deadline:
+<%= @project.app_deadline %></br>
 compensation:
 <%= @project.compensation %></br>
 Position
 <% @project.positions.each do |position| %>
   <%= position %>
 <% end %></br>
-<%= link_to 'proejcts index', projects_path %>
-<%= link_to %>
+<%= link_to 'projects index', projects_path %>
+<%= link_to 'apply', new_project_research_application_path(@project) %>
