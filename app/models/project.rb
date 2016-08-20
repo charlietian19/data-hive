@@ -44,12 +44,12 @@ class Project < ActiveRecord::Base
   end
 
   def accept(application_ids)
-    applications = ResearchApplication.find(application_ids)
+    applications = self.research_applications.where(id: application_ids)
     applications.map(&:approved!)
   end
 
   def reject(application_ids)
-    applications = ResearchApplication.find(application_ids)
+    applications = self.research_applications.where(id: application_ids)
     applications.map(&:unapproved!)
   end
 end

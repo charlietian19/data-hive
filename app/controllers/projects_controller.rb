@@ -44,6 +44,6 @@ class ProjectsController < ApplicationController
   def reject
     project = Project.find(params[:id])
     rejected_application_ids = params[:rejected_application_ids]
-    project.accept(rejected_application_ids)
+    project.reject(rejected_application_ids)
   end
 end
