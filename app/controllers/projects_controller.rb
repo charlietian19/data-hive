@@ -47,11 +47,13 @@ class ProjectsController < ApplicationController
     project = Project.find(params[:id])
     accpeted_application_ids = params[:accpeted_application_ids]
     project.accept(accpeted_application_ids)
+    redirect_to :back
   end
 
   def reject
     project = Project.find(params[:id])
     rejected_application_ids = params[:rejected_application_ids]
     project.reject(rejected_application_ids)
+    redirect_to :back
   end
 end
