@@ -18,4 +18,14 @@ Position
   <%= position %>
 <% end %></br>
 <%= link_to 'projects index', projects_path %>
+
+
+<% if @submittedapp.empty? && !@bookmarkedapp.empty? %>
 <%= link_to 'apply', new_project_research_application_path(@project) %>
+you've bookmarked this
+<% elsif @bookmarkedapp.empty? && @submittedapp.empty? %>
+<%= link_to 'bookmark', project_bookmark_path(@project), method: :patch %>
+<% else %>
+
+<%= link_to 'view application', project_research_application_path(@project, @submittedapp.first)%>
+<%end%>

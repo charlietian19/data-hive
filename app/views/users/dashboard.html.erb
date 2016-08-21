@@ -1,11 +1,12 @@
-Welcome <%= current_user.firstname current_user.lastname %>
+Welcome <%= current_user.firstname %> <%= current_user.lastname %>
 </br>
 
-Applications: </br>
+<h1>Applications: </h1></br>
 <%= render 'users/applications' %>
 </br>
 
-Projects you run: </br>
-<%= render 'users/proejcts' %>
+<h1>Projects you run: </h1></br>
+<%= render 'users/projects' %>
 
 
+<%= link_to 'home', root_path%>

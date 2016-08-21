@@ -12,15 +12,15 @@ Rails.application.routes.draw do
       sessions: 'users/sessions'
   }
   resources :users do
-    get 'users/:id/dashboard', to: 'users#dashboard'
+    get 'users/dashboard', to: 'users#dashboard', as: 'dashboard'
   end
 
   ################
   # PROJECTS
   ################
   resources :projects do
+    patch 'bookmark'
     resources :research_applications do
-      patch 'bookmark'
     end
   end
 

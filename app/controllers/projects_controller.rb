@@ -7,6 +7,8 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @status = ResearchApplication.where(project_id: @project.id, user_id: current_user.id)
+    @submittedapp = current_user.research_applications.where(project: @project, status: 2)
+    @bookmarkedapp = current_user.research_applications.where(project: @project, status: 1)
   end
 
   def new
@@ -28,6 +30,12 @@ class ProjectsController < ApplicationController
     else
       redirect_to action: 'new'
     end
+  end
+
+  def bookmark
+    @project = Project.find(params[:project_id])
+    ResearchApplication.create(project: @project, user: current_user, status: 1)
+    redirect_to @project
   end
 
   def project_params

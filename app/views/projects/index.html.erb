@@ -5,4 +5,7 @@ projects index </br>
 
 
 <%= link_to 'new project', new_project_path%>
+<% if user_signed_in? %>
+  <%= link_to 'dashboard', user_dashboard_path(current_user)%>
+<%end%>
 

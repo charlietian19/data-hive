@@ -2,7 +2,9 @@
   you currently lead no projects! to create a new project go to <%= link_to 'new project', new_project_path %>
 <% else %>
   <% @ownedprojectsapp.each do |app| %>
-    <%= app.user.firstname %>
-    <%= link_to 'application', research_application_path(app) %> </br>
+    <h3><%= app.project.title %></h3> <%= link_to app.project.title, project_path(app.project) %>
+     </br>
+    <h3>applicants</h3>
+    <%= render 'users/applicants', project: app.project %>
   <% end %>
 <% end %>

@@ -1,4 +1,4 @@
-<h1>saved (bookmarked?) projects</h1>
+<h4>saved (bookmarked?) projects</h4>
 </br>
 <% if @bookmarkedapps.nil? %>
   you have no bookemarked projects! to browse more projects go to <%= link_to 'projects index', projects_path %>
@@ -9,7 +9,7 @@
   <% end %>
 <% end %>
 
-<h1>Submitted apps</h1></br>
+<h4>Submitted apps</h4></br>
 <% if @submittedapps.nil? %>
   you haven't submitted any apps! to browse more projects go to <%= link_to 'projects index', projects_path %>
 <% else %>
