@@ -8,7 +8,7 @@ class ResearchApplicationsController < ApplicationController
   def create
     @app = ResearchApplication.new(app_params)
     @app.answers = params[:answers]
-    @app.status = 'submitted'
+    @app.status = 2
     @app.project = Project.find(params[:project_id])
     if @app.save
       redirect_to @app.project
@@ -17,9 +17,15 @@ class ResearchApplicationsController < ApplicationController
     end
   end
 
+  def show
+    @app = ResearchApplication.find(params[:id])
+    @questions = @app.project.questions
+    @answers = @app.answers
+  end
+
   def bookmark
     @project = Project.find(params[:project_id])
-    ResearchApplication.create(project: @project, user: current_user, status: 2)
+    ResearchApplication.create(project: @project, user: current_user, status: 1)
     redirect_to @project
   end
 

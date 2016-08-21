@@ -1,0 +1,10 @@
+<% project.research_applications.where(status: 2).each do |application| %>
+    <%= application.user.email %>
+    <% qnumber = 0 %>
+    Questions and answers </br>
+    <% application.answers.each do |answer|%>
+      <%= project.questions[qnumber]%>
+      <%= answer %> </br>
+      <% qnumber += 1 %>
+    <% end %>
+<% end %>
