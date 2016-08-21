@@ -32,6 +32,8 @@ class Project < ActiveRecord::Base
   has_many :research_applications
   has_many :users, through: :research_applications
 
+  validates :title, :subtitle, :startdate, :enddate, :app_deadline,:description, :hours_per_week, :compensation, :education_level, :field,  presence: true
+
 # Current_project is project object, tags is array of tag objects
   def add_tags(current_project, tags)
     tags.each do |tag|
