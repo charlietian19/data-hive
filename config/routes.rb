@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
       sessions: 'users/sessions'
   }
+  
+  resources :users do
+    get 'users/dashboard', to: 'users#dashboard', as: 'dashboard'
+  end
 
   resources :users
 
@@ -18,8 +22,8 @@ Rails.application.routes.draw do
   # PROJECTS
   ################
   resources :projects do
+    patch 'bookmark'
     resources :research_applications do
-      patch 'bookmark'
     end
 
     member do

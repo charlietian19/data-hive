@@ -1,0 +1,11 @@
+<%= @app.project.title %> </br>
+<%= @app.project.subtitle %> </br>
+<% qnumber = 0 %>
+Questions and answers </br>
+<% @answers.each do |answer|%>
+  <%= @questions[qnumber]%>
+  <%= answer %> </br>
+  <% qnumber += 1 %>
+<% end %>
+
+<%= link_to 'home', projects_path %>
