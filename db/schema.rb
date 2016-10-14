@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818010654) do
+ActiveRecord::Schema.define(version: 20161007192305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "project_tags", force: :cascade do |t|
-    t.integer  "tag_id"
-    t.integer  "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
@@ -34,11 +27,12 @@ ActiveRecord::Schema.define(version: 20160818010654) do
     t.integer  "compensation"
     t.integer  "education_level"
     t.integer  "state",           default: 1
-    t.integer  "field"
     t.text     "positions",                                array: true
     t.text     "questions",                                array: true
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.text     "department",                               array: true
+    t.text     "courses",                                  array: true
   end
 
   create_table "research_applications", force: :cascade do |t|
@@ -48,18 +42,6 @@ ActiveRecord::Schema.define(version: 20160818010654) do
     t.datetime "updated_at", null: false
     t.integer  "status"
     t.text     "answers",                 array: true
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.integer "category"
-    t.string  "tag"
-  end
-
-  create_table "user_tags", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -81,6 +63,10 @@ ActiveRecord::Schema.define(version: 20160818010654) do
     t.text     "major",                                            array: true
     t.text     "minor",                                            array: true
     t.integer  "gpa"
+    t.text     "department",                                       array: true
+    t.string   "preferedname"
+    t.text     "courses",                                          array: true
+    t.integer  "compensation"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
