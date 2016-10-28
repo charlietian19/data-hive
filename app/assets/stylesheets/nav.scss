@@ -1,0 +1,25 @@
+.navbar-default {
+  background-color: white;
+  border-color: #2A9FD8;
+  border-bottom: 2px solid #2A9FD8; 
+  border-top: 1px solid #2A9FD8;
+  
+  .navbar-brand {
+    //font-weight: 600;
+    //font-size: 1.3em;
+    color: #2A9FD8;
+    
+    
+    &:hover, &:focus {
+      //color: $colHighlight; 
+    }
+  }
+
+  .navbar-toggle {
+    border-color: #2A9FD8;
+  }
+
+  .navbar-nav > li > a {
+    color: #2A9FD8;
+  }
+}

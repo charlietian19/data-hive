@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title> Data Hive</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -11,10 +12,73 @@
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
 
-    <%= yield %>
+    <!-- <header>
+    <ul>
+      <li><%= link_to 'Home', projects_path %></li>
+      <li><a href="/projects/new">Create</a></li>
+      
+      
+      <% if user_signed_in? %>
+        <li style="float:right"><a class="active" href="#about">About </a></li>
+        <li style="float:right"><a class="active" href="#contact">Contact </a></li>
 
+        <li style="float:right"><%= link_to 'dashboard', user_dashboard_path(current_user)%></li>
+        <li style="float:right"><%= link_to 'profile', user_profile_path(current_user)%></li>
+        <li style="float:right"><%= link_to 'logout', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li style="float:right"><a class="active" href="#about">About </a></li>
+        <li style="float:right"><a class="active" href="#contact">Contact </a></li>
+          
+      <%end%>
+    </ul>
+    <nav>
+  </header> -->
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'Home', projects_path, class: 'navbar-brand' %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+        <li><%= link_to 'Dashboard', user_dashboard_path(current_user)%></li>
+        <% end %>
+        <li><a href="#">Listings</a></li>
+        <li><%= link_to 'Create', new_project_path(current_user)%></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <% if user_signed_in? %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%= current_user.firstname %> <%= current_user.lastname %> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Dashboard', user_dashboard_path(current_user)%></li>     
+            <li><%= link_to 'Profile', user_profile_path(current_user)%></li></li>
+            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
