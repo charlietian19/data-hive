@@ -1,5 +1,27 @@
 <h2>Edit Account </h2>
-
+<!-- edit by Yuki 
+   t.string   "email",                  default: "", null: false
+   t.string   "encrypted_password",     default: "", null: false
+   t.string   "reset_password_token"
+   t.datetime "reset_password_sent_at"
+   t.datetime "remember_created_at"
+   t.integer  "sign_in_count",          default: 0,  null: false
+   t.datetime "current_sign_in_at"
+   t.datetime "last_sign_in_at"
+   t.inet     "current_sign_in_ip"
+   t.inet     "last_sign_in_ip"
+   t.datetime "created_at",                          null: false
+   t.datetime "updated_at",                          null: false
+   //t.string   "firstname"
+   //t.string   "lastname"
+   //t.integer  "year"
+   t.text     "major",                                            array: true
+   t.text     "minor",                                            array: true
+   //t.integer  "gpa"
+   t.text     "department",                                       array: true
+   t.string   "preferedname"
+   t.text     "courses",                                          array: true
+   t.integer  "compensation"-->
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -26,6 +48,32 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :firstname, autocomplete: "off"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :lastname, autocomplete: "off"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :prefered_name %><br />
+    <%= f.text_field preferedname, autocomplete: "off"%>
+  </div> -->
+
+  <div class="field">
+    <%= f.label :gpa, "GPA" %><br />
+    <%= f.number_field :gpa, autocomplete: "off"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :year %><br />
+    <%= f.number_field :year, autocomplete: "off"%>
+  </div>
+
 
   <div class="actions">
     <%= f.submit "Update" %>
