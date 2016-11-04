@@ -13,11 +13,12 @@
 #  compensation    :integer
 #  education_level :integer
 #  state           :integer          default(1)
-#  field           :integer
 #  positions       :text             is an Array
 #  questions       :text             is an Array
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  department      :text             is an Array
+#  courses         :text             is an Array
 #
 
 class Project < ActiveRecord::Base
@@ -25,7 +26,7 @@ class Project < ActiveRecord::Base
   enum state: [:active, :inactive]
   enum education_level: [:undergraduate, :graduate, :both]
   enum compensation: [:units, :paid, :other]
-  enum field: [:engineeringcs, :economics]
+  enum department: [:engineeringcs, :economics]
 
   has_many :project_tags
   has_many :tags, through: :project_tags

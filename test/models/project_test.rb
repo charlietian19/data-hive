@@ -13,11 +13,12 @@
 #  compensation    :integer
 #  education_level :integer
 #  state           :integer          default(1)
-#  field           :integer
 #  positions       :text             is an Array
 #  questions       :text             is an Array
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  department      :text             is an Array
+#  courses         :text             is an Array
 #
 
 require 'test_helper'
