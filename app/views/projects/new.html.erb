@@ -31,9 +31,7 @@ Application end date
 <%= f.date_field :app_deadline%>
 Add questions
 
-  <input type="text" name="questions[]" />
-  <input type="text" name="questions[]" />
-  <input type="text" name="questions[]" />
+<%= react_component "AddRemoveProjectQuestions", {project: @project } %>
 
 <%= f.submit %>
 <% end %>

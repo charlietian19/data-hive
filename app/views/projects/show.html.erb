@@ -20,7 +20,7 @@ Position
 <%= link_to 'projects index', projects_path %>
 
 
-<% if @submittedapp.empty? && !@bookmarkedapp.empty? %>
+<% if @submittedapp.empty? %>
 <%= link_to 'apply', new_project_research_application_path(@project) %>
 you've bookmarked this
 <% elsif @bookmarkedapp.empty? && @submittedapp.empty? %>
