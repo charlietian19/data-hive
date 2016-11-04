@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
     @project = Project.new
     @tags = Tag.all
     @compensations = Project.compensations.keys
-    @fields = Project.fields.keys
+    @departments = Project.departments.keys
   end
 
   def create
