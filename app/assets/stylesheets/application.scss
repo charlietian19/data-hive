@@ -1,60 +1,67 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- *= require foundation_and_overrides
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
+*= require foundation_and_overrides
 
- */
- @import "foundation_and_overrides";
- @import "bootstrap";
- @import "nav";
+*/
+@import "foundation_and_overrides";
+@import "bootstrap";
+@import "nav";
 
- 
- header {
-	background-color: white; 
-	border-bottom: thin solid #2A9FD8; 
-	border-top: thin solid #2A9FD8;
-	margin: 0px;
- }
 
+header {
+background-color: white; 
+border-bottom: thin solid #2A9FD8; 
+border-top: thin solid #2A9FD8;
+margin: 0px;
+}
+
+body {
+font-size: 14px;
+}
+
+.field {
+font-size: 12px;
+}
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    //overflow: hidden;
-    background-color: white;
-    font-color: #2A9FD8;
-    font-size: 14px;
+list-style-type: none;
+margin: 0;
+padding: 0;
+//overflow: hidden;
+background-color: white;
+font-color: #2A9FD8;
+font-size: 14px;
 }
 
 li {
-    float: left;
+float: left;
 }
 
 li a {
-    display: block;
-    text-color: #2A9FD8;
-    text-align: center;
-    //padding: 14px 16px;
-    text-decoration: none;
+display: block;
+text-color: #2A9FD8;
+text-align: center;
+//padding: 14px 16px;
+text-decoration: none;
 }
 
 li a:hover:not(.active) {
-    background-color: white;
-    //text-color: blue;
+background-color: white;
+//text-color: blue;
 }
 
 .active {
-    background-color: white;
+background-color: white;
 }
