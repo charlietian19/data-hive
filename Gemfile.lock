@@ -44,10 +44,13 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.5.1.1)
       execjs
+<<<<<<< HEAD
+=======
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
+>>>>>>> master
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
