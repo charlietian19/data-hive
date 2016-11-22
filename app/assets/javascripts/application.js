@@ -12,10 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
-//= require turbolinks
+//= require bootstrap
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
-//= require foundation
-// $(document).foundation();
-$function(){ $(document).foundation();
+
+
 

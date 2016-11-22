@@ -6,8 +6,8 @@ Subtitle
 Description
 <%= f.text_field :description,  placeholder: 'description' %>
 Basic info
-What field does your project fall under?
-<%= f.select(:field, @fields) %>
+What department does your project fall under?
+<%= f.select(:department, @departments) %>
 What kind of person are you looking for? Maximum 5
 
 
@@ -31,9 +31,7 @@ Application end date
 <%= f.date_field :app_deadline%>
 Add questions
 
-  <input type="text" name="questions[]" />
-  <input type="text" name="questions[]" />
-  <input type="text" name="questions[]" />
+<%= react_component "AddRemoveProjectQuestions", {project: @project } %>
 
 <%= f.submit %>
 <% end %>

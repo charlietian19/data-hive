@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   }
   resources :users do
     get 'users/dashboard', to: 'users#dashboard', as: 'dashboard'
+    get 'users/profile', to: 'users#profile', as: 'profile'
   end
 
   ################
