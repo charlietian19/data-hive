@@ -14,13 +14,13 @@
    //t.string   "firstname"
    //t.string   "lastname"
    //t.integer  "year"
-   t.text     "major",                                            array: true
-   t.text     "minor",                                            array: true
+   //t.text     "major",                                            array: true
+   //t.text     "minor",                                            array: true
    //t.integer  "gpa"
-   t.text     "department",                                       array: true
-   t.string   "preferedname"
-   t.text     "courses",                                          array: true
-   t.integer  "compensation"-->
+   //t.text     "department",                                       array: true
+   //t.string   "preferedname"
+   //t.text     "courses",                                          array: true
+   //t.integer  "compensation"-->
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -62,8 +62,8 @@
 
   <div class="field">
     <%= f.label :prefered_name %><br />
-    <%= f.text_field preferedname, autocomplete: "off"%>
-  </div> -->
+    <%= f.text_field :preferedname, autocomplete: "off"%>
+  </div>
 
   <div class="field">
     <%= f.label :gpa, "GPA" %><br />
@@ -73,6 +73,31 @@
   <div class="field">
     <%= f.label :year %><br />
     <%= f.number_field :year, autocomplete: "off"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :major %><br />
+    <%= f.text_field :major, autocomplete: "off"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :minor %><br />
+    <%= f.text_field :minor, autocomplete: "off"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :department %><br />
+    <%= f.text_field :department, autocomplete: "off"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :courses %><br />
+    <%= f.text_field :courses, autocomplete: "off"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :compensation %><br />
+    <%= f.number_field :compensation, autocomplete: "off"%>
   </div>
 
 
