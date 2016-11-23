@@ -69,7 +69,7 @@
 
   <div class="field">
     <%= f.label :courses %><br />
-    <%= f.text_field :courses, autocomplete: "off"%>
+    <%= f.select :courses, [['CS61A','cs61a'],['CS61B','cs61b'],['CS61C','cs61c']] %>
   </div>
 
   <div class="field">
