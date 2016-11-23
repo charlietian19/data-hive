@@ -1,5 +1,6 @@
 <h2>Edit Account </h2>
 
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -69,7 +70,11 @@
 
   <div class="field">
     <%= f.label :courses %><br />
+<<<<<<< HEAD
     <%= f.select :courses, [['CS61A','cs61a'],['CS61B','cs61b'],['CS61C','cs61c']] %>
+=======
+    <%= f.text_field :courses, autocomplete: "off"%>
+>>>>>>> 105df11354a336381c60c1aeb0295bcf52919d46
   </div>
 
   <div class="field">
