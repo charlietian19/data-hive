@@ -34,4 +34,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :research_applications
   has_many :projects, through: :research_applications
+
+  validates :phone_number, format: { with: /\d{3}-\d{3}-\d{4}/, message: "format should be xxx-xxx-xxxx"}
+  validates :gpa, numericality: { greater_than: 0, less_than_or_equal_to: 4.0 },
+  format: { with: /[0-4].[0-9]/, message: "format should be x.x"}
+
 end

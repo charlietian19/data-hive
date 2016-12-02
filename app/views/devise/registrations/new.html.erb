@@ -56,7 +56,7 @@
 
   <div class="field">
     <%= f.label :gpa, 'GPA' %><br />
-    <%= f.number_field :gpa, autofocus: true %>
+    <%= f.text_field :gpa, :value => (number_with_precision(f.object.gpa, :precision => 1) || 0), autofocus: true %>
   </div>
 
 

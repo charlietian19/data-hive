@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'uploads/new'
+
+  get 'uploads/create'
+
+  get 'uploads/index'
+
   authenticated :user do
     root to: 'projects#index', as: 'authenticated_root'
   end
@@ -24,6 +30,8 @@ Rails.application.routes.draw do
     resources :research_applications do
     end
   end
+
+  resources :uploads
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
