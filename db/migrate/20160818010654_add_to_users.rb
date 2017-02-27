@@ -5,6 +5,6 @@ class AddToUsers < ActiveRecord::Migration
     add_column :users, :year, :integer
     add_column :users, :major, :text, array: true
     add_column :users, :minor, :text, array: true
-    add_column :users, :gpa, :integer
+    add_column :users, :gpa, :text
   end
 end

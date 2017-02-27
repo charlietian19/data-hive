@@ -8,19 +8,30 @@ class UsersController < ApplicationController
   def show
   end
 
-  def profile 
+  def profile
     @user = current_user
   end
 
-  def create 
+  def create
     @user = User.new(user_params)
+  end
+
+  def edit_password
+    @user = User.find(params[:user_id])
+    if @user.save
+      @user.update_attributes(user_params)
+      flash[:notice] = 'Your password is successfully updated!'
+      redirect_to(user_profile_path(@user))
+    end
   end
 
   def update
     @user = User.find(params[:id])
+    filtered_params = params.reject { |_, v| v }
 
-    if @user.update_attributes(params.require(:user).permit(:firstname, :lastname, :email, :year, :graduation_year, :major, :minor, :gpa, :phone_number))
-      flash[:error] = 'The User is successfully updated!'
+    if @user.save
+      @user.update_attributes(user_params)
+      flash[:notice] = 'The User is successfully updated!'
       redirect_to(user_profile_path(@user))
     end
   end

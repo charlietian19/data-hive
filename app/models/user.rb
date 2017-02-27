@@ -25,6 +25,8 @@
 #  preferedname           :string
 #  courses                :text             is an Array
 #  compensation           :integer
+#  phone_number           :integer
+#  graduation_year        :integer
 #
 
 class User < ActiveRecord::Base
@@ -34,4 +36,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :research_applications
   has_many :projects, through: :research_applications
+  validates :gpa, numericality: { greater_than: 0, less_than_or_equal_to: 4.0 },
+  format: { with: /\A\d+(?:\.\d{0,2})?\z/, message: "format should be x.x"}
 end

@@ -15,6 +15,7 @@ gem 'nokogiri'
 gem 'pg', '0.18.4'
 gem 'pg_search', '1.0.5'
 gem 'react-rails', '1.5.0'
+gem 'aws-sdk-v1'
 
 # Frontend
 gem 'turbolinks'
