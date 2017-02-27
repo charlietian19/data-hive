@@ -25,6 +25,8 @@
 #  preferedname           :string
 #  courses                :text             is an Array
 #  compensation           :integer
+#  phone_number           :integer
+#  graduation_year        :integer
 #
 
 require 'test_helper'
